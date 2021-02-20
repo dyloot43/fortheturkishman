@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+    <doc xmlns:jersey="http://jersey.java.net/" jersey:generatedBy="Jersey: 2.27 2018-04-10 07:34:57"/>
+    <doc xmlns:jersey="http://jersey.java.net/" jersey:hint="This is simplified WADL with user and core resources only. To get full WADL with extended resources use the query parameter detail. Link: https://THETURKISHGOD/SWS/application.wadl?detail=true"/>
+    <grammars/>
+    <resources base="https://THETURKISHGOD/SWS">
+        <resource path="">
+            <resource path="/GetApplicationVersion">
+                <method id="getVersion" name="GET">
+                    <response>
+                        <representation mediaType="text/plain"/>
+                    </response>
+                </method>
+            </resource>
+            <resource path="/ping">
+                <method id="getPing" name="GET">
+                    <response>
+                        <representation mediaType="text/plain"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource path="/md">
+            <resource path="doGlobalAddress">
+                <method id="doGlobalAddress" name="POST">
+                    <request>
+                        <representation mediaType="application/json"/>
+                    </request>
+                    <response>
+                        <representation mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource path="/facts">
+            <method id="getFacts" name="GET">
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource path="/properties">
+            <method id="searchProperties" name="POST">
+                <request>
+                    <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="X-Forwarded-For" style="header" type="xs:string"/>
+                </request>
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+            <resource path="/state-fair">
+                <method id="stateFairSearchProperties" name="POST">
+                    <request>
+                        <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="X-Forwarded-For" style="header" type="xs:string"/>
+                    </request>
+                    <response>
+                        <representation mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource path="/openapi">
+            <method id="getOpenApiJson" name="GET">
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+            <method id="getOpenApiYaml" name="GET">
+                <response>
+                    <representation mediaType="application/yaml"/>
+                </response>
+            </method>
+        </resource>
+        <resource path="/property-share">
+            <method id="searchProperties" name="POST">
+                <request>
+                    <representation mediaType="application/json"/>
+                </request>
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource path="/holders/summaries">
+            <resource path="{taxID}">
+                <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="taxID" style="template" type="xs:string"/>
+                <method id="findHolderReportSummaries" name="GET">
+                    <response>
+                        <representation mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource path="/create">
+                <method id="createHolderReportSummary" name="POST">
+                    <request>
+                        <representation mediaType="application/json"/>
+                    </request>
+                    <response>
+                        <representation mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource path="/auction">
+            <method id="collectContactInfo" name="POST">
+                <request>
+                    <representation mediaType="application/json"/>
+                </request>
+            </method>
+        </resource>
+        <resource path="/claims">
+            <method id="submitClaim" name="POST">
+                <request>
+                    <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="X-Forwarded-For" style="header" type="xs:string"/>
+                    <representation mediaType="application/json"/>
+                </request>
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+            <resource path="/request">
+                <method id="submitSearchRequest" name="POST">
+                    <request>
+                        <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="X-Forwarded-For" style="header" type="xs:string"/>
+                        <representation mediaType="application/json"/>
+                    </request>
+                    <response>
+                        <representation mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource path="/holders">
+            <method id="submitHolderReport" name="POST">
+                <request>
+                    <representation mediaType="multipart/form-data"/>
+                </request>
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+            <resource path="/vendors">
+                <method id="submitHolderReportDirectlyFromVendor" name="POST">
+                    <request>
+                        <representation mediaType="multipart/form-data"/>
+                    </request>
+                    <response>
+                        <representation mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource path="/validate">
+                <method id="validateHolderInfo" name="POST">
+                    <request>
+                        <representation mediaType="application/json"/>
+                    </request>
+                    <response>
+                        <representation mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+            <resource path="/default_report_year">
+                <method id="getDefaultReportYear" name="GET">
+                    <response>
+                        <representation mediaType="application/json"/>
+                    </response>
+                </method>
+            </resource>
+        </resource>
+        <resource path="/claims/{claimID}/statuses/">
+            <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="claimID" style="template" type="xs:string"/>
+            <method id="getClaimStatus" name="GET">
+                <request>
+                    <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="X-Forwarded-For" style="header" type="xs:string"/>
+                </request>
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource path="/app/properties">
+            <method id="getAppProperties" name="GET">
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+        <resource path="/openapi.{type:json|yaml}">
+            <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="type" style="template" type="xs:string"/>
+            <method id="getOpenApi" name="GET">
+                <response>
+                    <representation mediaType="application/json"/>
+                    <representation mediaType="application/yaml"/>
+                </response>
+            </method>
+        </resource>
+        <resource path="/claims/documents/">
+            <method id="uploadClaimDocumentation" name="POST">
+                <request>
+                    <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="X-Forwarded-For" style="header" type="xs:string"/>
+                    <representation mediaType="multipart/form-data"/>
+                </request>
+                <response>
+                    <representation mediaType="application/json"/>
+                </response>
+            </method>
+        </resource>
+    </resources>
+</application>
